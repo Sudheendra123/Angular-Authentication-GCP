@@ -1,0 +1,29 @@
+<button mat-button [matMenuTriggerFor]= "menu">Account</button>
+<mat-menu #menu="matMenu" class="my-class">
+    <div *ngIf = "token == false else log;">
+    <button class ="pos" (click) = "login()" mat-menu-item> 
+        <span class="material-icons">
+            login
+        </span>Login</button>
+    <button class ="pos" (click) = "signUp()" mat-menu-item>
+        <span class="material-icons">
+            account_circle
+        </span>
+            Sign Up
+        </button>
+    </div>
+    <ng-template #log>
+            <button (click) ="service.logout()" class ="pos" mat-menu-item>
+                    <span class="material-icons">
+                        account_circle
+                    </span>
+                        Logout
+                    </button>
+    </ng-template>
+    <button class ="pos"  mat-menu-item>
+        <span class="material-icons">
+            settings
+        </span>
+            Settings
+    </button>
+</mat-menu>
